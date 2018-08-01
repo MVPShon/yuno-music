@@ -31,7 +31,6 @@ const commands =  {
 			//msg.channel.sendMessage(`Playing: **${song.title}** requested by: **${song.requester}**`);
 			let Embed = new Discord.RichEmbed()
 			.setAuthor(" | Now Playing", client.user.displayAvatarURL)
-			.setThumbnail(info.thumbnail_url)
 			.setTitle(`Playing ${song.title}`)
 			.addField("Requested by:", song.requester)
 			.setTimestamp()
