@@ -22,15 +22,16 @@ const commands =  {
 		console.log(queue);
 		(function play(song) {
 			console.log(song);
-			if (song === undefined) return msg.channel.sendMessage(':musical_note: | **Queue is empty**').then(() => {
+			if (song === undefined) return msg.channel.sendMessage('**Queue is empty**').then(() => {
 				queue[msg.guild.id].playing = false;
 				msg.member.voiceChannel.leave();
 			});
 			let yturl = song.url;
 			let ytinfo = yt.getInfo(yturl);
-			//msg.channel.sendMessage(`Playing: **${song.title}** as requested by: **${song.requester}**`);
+			//msg.channel.sendMessage(`Playing: **${song.title}** requested by: **${song.requester}**`);
 			let Embed = new Discord.RichEmbed()
 			.setAuthor(" | Now Playing", client.user.displayAvatarURL)
+			.setThumbnail(info.thumbnail_url)
 			.setTitle(`Playing ${song.title}`)
 			.addField("Requested by:", song.requester)
 			.setTimestamp()
@@ -40,11 +41,11 @@ const commands =  {
 			let collector = msg.channel.createCollector(m => m);
 			collector.on('message', m => {
 				if (m.content.startsWith(tokens.prefix + 'pause')) {
-					msg.channel.sendMessage(':pause_button: | **Paused**').then(() => {dispatcher.pause();});
+					msg.channel.sendMessage(':pause_button: **Paused**').then(() => {dispatcher.pause();});
 				} else if (m.content.startsWith(tokens.prefix + 'resume')){
-					msg.channel.sendMessage(':arrow_forward: | **Resumed**').then(() => {dispatcher.resume();});
+					msg.channel.sendMessage(':arrow_forward: **Resumed**').then(() => {dispatcher.resume();});
 				} else if (m.content.startsWith(tokens.prefix + 'skip')){
-					msg.channel.sendMessage(':track_next: | **Skipped**').then(() => {dispatcher.end();});
+					msg.channel.sendMessage(':track_next: **Skipped**').then(() => {dispatcher.end();});
 				} else if (m.content.startsWith('volume+')){
 					if (Math.round(dispatcher.volume*50) >= 100) return msg.channel.sendMessage(`Volume: ${Math.round(dispatcher.volume*50)}%`);
 					dispatcher.setVolume(Math.min((dispatcher.volume*50 + (2*(m.content.split('+').length-1)))/50,2));
@@ -73,7 +74,7 @@ const commands =  {
 		    
 		return new Promise((resolve, reject) => {
 			const voiceChannel = msg.member.voiceChannel;
-			if (!voiceChannel || voiceChannel.type !== 'voice') return msg.reply(':musical_note: | I couldn\'t connect to your voice channel...');
+			if (!voiceChannel || voiceChannel.type !== 'voice') return msg.reply(':no_entry_sign: I couldn\'t connect to your voice channel...');
 			voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
 		});
 	},
@@ -95,7 +96,7 @@ const commands =  {
 			
 				//console.log(videoEntry.url);
 				yt.getInfo(videoEntry.url, (err, info) => {
-					if(err) return msg.channel.sendMessage(':musical_note: | Sorry that link was not valid.');
+					if(err) return msg.channel.sendMessage(':no_entry_sign: Sorry that link is invalid.');
 					if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
 					queue[msg.guild.id].songs.push({url: videoEntry.url, title: info.title, requester: msg.author.username});
 					let Embed = new Discord.RichEmbed()
@@ -132,7 +133,7 @@ const commands =  {
 		
 			let result = searchResult.first;
 			yt.getInfo(result.url, (err, info) => {
-				if(err) return msg.channel.sendMessage(':musical_note: | Sorry that link was not valid.');
+				if(err) return msg.channel.sendMessage(':no_entry_sign: Sorry that link is invalid.');
 				if (!queue.hasOwnProperty(msg.guild.id)) queue[msg.guild.id] = {}, queue[msg.guild.id].playing = false, queue[msg.guild.id].songs = [];
 				queue[msg.guild.id].songs.push({url: result.url, title: info.title, requester: msg.author.username});
 				let embed = new Discord.RichEmbed()
