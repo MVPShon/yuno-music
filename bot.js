@@ -115,7 +115,7 @@ const commands =  {
 		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add`);
 		let tosend = [];
 		queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
-		msg.channel.sendMessage(`__**${msg.guild.name}'s**__ Music Queue \n**${tosend.length}** song(s) queued ${(tosend.length > 15 ? '\n*[Only showing the next 15*' : '')}\n\`\`\`cs\n${tosend.slice(0,15).join('\n')}\`\`\``);
+		msg.channel.sendMessage(`__**${msg.guild.name}'s**__ Music Queue \n**${tosend.length}** song(s) queued ${(tosend.length > 20 ? '\n*[Only showing the next 20*]' : '')}\n\`\`\`css\n${tosend.slice(0,20).join('\n')}\`\`\``);
 	},
 	'reboot': (msg) => {
 		   
