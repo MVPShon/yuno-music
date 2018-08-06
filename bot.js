@@ -33,6 +33,7 @@ const commands =  {
 			.setAuthor(" | Now Playing", client.user.displayAvatarURL)
 			.setTitle(`Playing ${song.title}`)
 			.addField("Requested by:", song.requester)
+			.setURL(`${song.url}`)
 			.setTimestamp()
 			.setColor(0xff6464)
 			msg.channel.sendEmbed(Embed)
@@ -105,6 +106,7 @@ const commands =  {
 					.addField("Requested by:", msg.author.username)
 					.setThumbnail(info.thumbnail_url)
 					.setColor(0xff6464)
+					.setURL(`${info.url}`)
 					msg.channel.sendEmbed(Embed)
 				});
 			  });
@@ -143,6 +145,7 @@ const commands =  {
 				.addField("Description:", result.description)
 				.addField("Channel name:", result.channelTitle)
 				.setFooter(`Requested by ${msg.author.username}`)
+				.setURL(`${result.url}`)
 				msg.channel.sendEmbed(embed)
 			});
 		  });
