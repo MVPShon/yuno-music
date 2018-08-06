@@ -13,7 +13,7 @@ let queue = {};
 
 const commands =  {
 	'play': (msg) => {
-		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add.`);
+		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`:musical_note: | Add some songs to the queue first with \`${tokens.prefix}add\` or \`${tokens.prefix}search\``);
 		if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
 		if (queue[msg.guild.id].playing) return msg.channel.sendMessage(`:musical_note: | **Already Playing**`);
 		let dispatcher;
@@ -22,7 +22,7 @@ const commands =  {
 		console.log(queue);
 		(function play(song) {
 			console.log(song);
-			if (song === undefined) return msg.channel.sendMessage('**Queue is empty.. Now leaving the voice channel..**').then(() => {
+			if (song === undefined) return msg.channel.sendMessage('**Queue is empty**').then(() => {
 				queue[msg.guild.id].playing = false;
 				msg.member.voiceChannel.leave();
 			});
@@ -31,6 +31,7 @@ const commands =  {
 			//msg.channel.sendMessage(`Playing: **${song.title}** requested by: **${song.requester}**`);
 			let Embed = new Discord.RichEmbed()
 			.setAuthor(" | Now Playing", client.user.displayAvatarURL)
+			.setThumbnail(info.thumbnail_url)
 			.setTitle(`Playing ${song.title}`)
 			.addField("Requested by:", song.requester)
 			.setTimestamp()
@@ -73,7 +74,7 @@ const commands =  {
 		    
 		return new Promise((resolve, reject) => {
 			const voiceChannel = msg.member.voiceChannel;
-			if (!voiceChannel || voiceChannel.type !== 'voice') return msg.reply('I could not connect to your voice channel.');
+			if (!voiceChannel || voiceChannel.type !== 'voice') return msg.reply(':no_entry_sign: I couldn\'t connect to your voice channel...');
 			voiceChannel.join().then(connection => resolve(connection)).catch(err => reject(err));
 		});
 	},
@@ -110,17 +111,16 @@ const commands =  {
 			  });
 			});
 	},
-	'queue': (msg) => {
-		   
-		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with ${tokens.prefix}add`);
+	'queue': (msg) => { 
+		if (queue[msg.guild.id] === undefined) return msg.channel.sendMessage(`Add some songs to the queue first with \`${tokens.prefix}add\` or \`${tokens.prefix}search\``);
 		let tosend = [];
 		queue[msg.guild.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title} - Requested by: ${song.requester}`);});
-		msg.channel.sendMessage(`__**${msg.guild.name}'s**__ Music Queue \n**${tosend.length}** song(s) queued ${(tosend.length > 20 ? '\n*[Only showing the next 20*]' : '')}\n\`\`\`css\n${tosend.slice(0,20).join('\n')}\`\`\``);
+		msg.channel.sendMessage(`__**${msg.guild.name}'s**__ Music Queue \n**${tosend.length}** song(s) queued ${(tosend.length > 15 ? '\n*[Only showing the next 15*' : '')}\n\`\`\`css\n${tosend.slice(0,15).join('\n')}\`\`\``);
 	},
-	'reboot': (msg) => {
+	//'reboot': (msg) => {
 		   
-		if (msg.author.id == tokens.adminID) process.exit(); //Requires a node module like Forever to work.
-	},
+	//	if (msg.author.id == tokens.adminID) process.exit(); //Requires a node module like Forever to work.
+	//},
 	'search': (msg) => {
 		  
 		let messsageArray = msg.content.split(" ");
