@@ -39,7 +39,7 @@ const commands = {
                 .setURL(`${song.url}`)
                 .setTimestamp()
                 .setColor(0xff6464)
-            msg.channel.sendEmbed(Embed) message.channel.send(Embed).then(embed => {
+            msg.channel.sendEmbed(Embed).then(Embed => {
                 setInterval(function() {
 
                     Embed.delete();
@@ -132,8 +132,7 @@ const commands = {
                                 .setThumbnail(info.thumbnail_url)
                                 .setColor(0xff6464)
                                 .setURL(`${info.url}`)
-                            msg.channel.sendEmbed(Embed)
-                            message.channel.send(Embed).then(Embed => {
+                            msg.channel.sendEmbed(Embed).then(Embed => {
                                 setInterval(function() {
 
                                     embed.delete();
@@ -186,7 +185,7 @@ const commands = {
                         .addField("Channel name:", result.channelTitle)
                         .setFooter(`Requested by ${msg.author.username}`)
                         .setURL(`${result.url}`)
-                    msg.channel.sendEmbed(embed) message.channel.send(embed).then(embed => {
+                    msg.channel.sendEmbed(embed).then(embed => {
                         setInterval(function() {
 
                             embed.delete();
