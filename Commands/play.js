@@ -47,4 +47,4 @@ server.queue.push(resOne.link)
                   });
 
 });
-     
+}
