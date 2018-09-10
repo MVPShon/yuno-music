@@ -8,7 +8,7 @@ if(!message.member.voiceChannel) return message.channel.send(":x: | Sorry! Pleas
 
 if(message.guild.me.voiceChannel) return message.channel.send(":x: | Sorry! I'm already playing in a channel.");
 
-if(!args[0]) return message.channel.send(":x: | Sorry! Please provide a Search String or URL.");
+if(!args[0]) return message.channel.send("I can't search for *nothing*!");
 
 function play(connection, message) {
      
@@ -19,7 +19,7 @@ function play(connection, message) {
      server.dispatcher.on("end", function() {
      if(server.queue[0]) return play(connection, message);
        else connection.disconnect();
-       message.channel.send(":dash: | Queue is empty.");
+       message.channel.send("The queue is empty!");
      
      });
    }
@@ -39,19 +39,19 @@ function play(connection, message) {
     let resFive = results[4];
 
     let embed = new Discord.RichEmbed()
-    .setDescription(`:arrow_forward: **${resOne.title}**\n:arrow_left:${resTwo.title}\n:arrow_up: ${resThree.title}\n:arrow_down: ${resFour.title}\n:arrow_left: ${resFive.title}`)
+    .setDescription(`:one: **${resOne.title}**\n:two: ${resTwo.title}\n:three: ${resThree.title}\n:four: ${resFour.title}\n:five: ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
-        embeds.react(":arrow_forward:").then(async r => {
-            await embeds.react(":arrow_right:");
-            await embeds.react(":arrow_up:");
-            await embeds.react(":arrow_down:");
-            await embeds.react(":arrow_left:");
+        embeds.react("1").then(async r => {
+            await embeds.react("2");
+            await embeds.react("3");
+            await embeds.react("4");
+            await embeds.react("5");
 
-            const songOne = (reaction, user) => reaction.emoji.name === ":arrow_forward:" && user.id === message.author.id;
-            const songTwo = (reaction, user) => reaction.emoji.name === ":arrow_right:" && user.id === message.author.id;
-            const songThree = (reaction, user) => reaction.emoji.name === ":arrow_up:" && user.id === message.author.id;
-            const songFour = (reaction, user) => reaction.emoji.name === ":arrow_down:" && user.id === message.author.id;
-            const songFive = (reaction, user) => reaction.emoji.name === ":arrow_left:" && user.id === message.author.id;
+            const songOne = (reaction, user) => reaction.emoji.name === "1" && user.id === message.author.id;
+            const songTwo = (reaction, user) => reaction.emoji.name === "2" && user.id === message.author.id;
+            const songThree = (reaction, user) => reaction.emoji.name === "3" && user.id === message.author.id;
+            const songFour = (reaction, user) => reaction.emoji.name === "4" && user.id === message.author.id;
+            const songFive = (reaction, user) => reaction.emoji.name === "5" && user.id === message.author.id;
 
             const one = embeds.createReactionCollector(songOne, { time: 60000 });
             const two = embeds.createReactionCollector(songTwo, { time: 60000 });
