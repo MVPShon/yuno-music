@@ -8,18 +8,19 @@ exports.run = async (musicbot, message, args, prefix, server) => {
     //if (queue[message.guild.id] === undefined) return message.channel.sendMessage(`Add some songs to the queue first with \`${prefix}play\` or \`${prefix}search\``);
 
     function play(connection, message) {
-        server.dispatcher = connection.playStream(ytdl(server.queue[0], {
-            filter: 'audioonly'
-        }));
-
+     
+        server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: 'audioonly'}));
+        
         server.queue.shift();
+        
         server.dispatcher.on("end", function() {
-            if (server.queue[0]) return play(connection, message);
-            else connection.disconnect();
-            message.channel.send("Queue is empty.");
-
+        if(server.queue[0]) return play(connection, message);
+          else connection.disconnect();
+          message.channel.send(":dash: | Queue is empty.");
+        
         });
-    }
+      }
+   
     var opts = {
         maxResults: 1,
         key: 'AIzaSyA9BBe0ud_2h_5q9SVBvrXfRGtxwIX5WaM'
