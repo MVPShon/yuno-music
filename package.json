@@ -1,0 +1,20 @@
+{
+  "name": "evileyemusic",
+  "version": "1.0.0",
+  "description": "Evileye's Music Functionality.",
+  "main": "music.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "music"
+  ],
+  "author": "MVPShon",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "nodemon": "^1.18.4",
+    "youtube-search": "^1.1.1",
+    "ytdl-core": "^0.25.2"
+  }
+}
