@@ -4,9 +4,9 @@ var search = require('youtube-search');
 
 exports.run = async (musicbot, message, args, prefix, server) => {
 
-if(!message.member.voiceChannel) return message.channel.send(":x: | Sorry! Please join a Voice Channel.");
+if(!message.member.voiceChannel) return message.channel.send("You have to be in a voice channel!");
 
-if(message.guild.me.voiceChannel) return message.channel.send(":x: | Sorry! I'm already playing in a channel.");
+if(message.guild.me.voiceChannel) return message.channel.send("I'm already in another voice channel!");
 
 if(!args[0]) return message.channel.send("I can't search for *nothing*!");
 
@@ -39,19 +39,19 @@ function play(connection, message) {
     let resFive = results[4];
 
     let embed = new Discord.RichEmbed()
-    .setDescription(`:one: **${resOne.title}**\n:two: ${resTwo.title}\n:three: ${resThree.title}\n:four: ${resFour.title}\n:five: ${resFive.title}`)
+    .setDescription(`:regional_indicator_a: **${resOne.title}**\n:regional_indicator_b: ${resTwo.title}\n:regional_indicator_c: ${resThree.title}\n:regional_indicator_d: ${resFour.title}\n:regional_indicator_e: ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
-        embeds.react("1️⃣").then(async r => {
-            await embeds.react("2️⃣");
-            await embeds.react("3️⃣");
-            await embeds.react("4️⃣");
-            await embeds.react("5️⃣");
+        embeds.react(":regional_indicator_a:").then(async r => {
+            await embeds.react(":regional_indicator_b:");
+            await embeds.react(":regional_indicator_c:");
+            await embeds.react(":regional_indicator_d:");
+            await embeds.react(":regional_indicator_e:");
 
-            const songOne = (reaction, user) => reaction.emoji.name === "1️⃣" && user.id === message.author.id;
-            const songTwo = (reaction, user) => reaction.emoji.name === "2️⃣" && user.id === message.author.id;
-            const songThree = (reaction, user) => reaction.emoji.name === "3️⃣" && user.id === message.author.id;
-            const songFour = (reaction, user) => reaction.emoji.name === "4️⃣" && user.id === message.author.id;
-            const songFive = (reaction, user) => reaction.emoji.name === "5️⃣" && user.id === message.author.id;
+            const songOne = (reaction, user) => reaction.emoji.name === ":regional_indicator_a:" && user.id === message.author.id;
+            const songTwo = (reaction, user) => reaction.emoji.name === ":regional_indicator_b:" && user.id === message.author.id;
+            const songThree = (reaction, user) => reaction.emoji.name === ":regional_indicator_c:" && user.id === message.author.id;
+            const songFour = (reaction, user) => reaction.emoji.name === ":regional_indicator_d:" && user.id === message.author.id;
+            const songFive = (reaction, user) => reaction.emoji.name === ":regional_indicator_e:" && user.id === message.author.id;
 
             const one = embeds.createReactionCollector(songOne, { time: 60000 });
             const two = embeds.createReactionCollector(songTwo, { time: 60000 });
