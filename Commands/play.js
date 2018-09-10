@@ -47,7 +47,7 @@ function play(connection, message) {
             await embeds.react(":next_track: ");
             await embeds.react(":arrow_right: ");
 
-            const songOne = (reaction, user) => reaction.emoji.name === "♥" && user.id === message.author.id;
+            const songOne = (reaction, user) => reaction.emoji.name === ":arrow_forward:" && user.id === message.author.id;
             const songTwo = (reaction, user) => reaction.emoji.name === ":play_pause: " && user.id === message.author.id;
             const songThree = (reaction, user) => reaction.emoji.name === ":fast_forward: " && user.id === message.author.id;
             const songFour = (reaction, user) => reaction.emoji.name === ":next_track: " && user.id === message.author.id;
