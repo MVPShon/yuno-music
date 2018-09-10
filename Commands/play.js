@@ -4,9 +4,9 @@ var search = require('youtube-search');
 
 exports.run = async (musicbot, message, args, prefix, server) => {
 
-if(!message.member.voiceChannel) return message.channel.send("You have to be in a voice channel!");
+if(!message.member.voiceChannel) return message.channel.send(":x: | Sorry! Please join a Voice Channel.");
 
-if(message.guild.me.voiceChannel) return message.channel.send("I'm already in another voice channel!");
+if(message.guild.me.voiceChannel) return message.channel.send(":x: | Sorry! I'm already playing in a channel.");
 
 if(!args[0]) return message.channel.send("I can't search for *nothing*!");
 
