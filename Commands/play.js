@@ -41,17 +41,17 @@ function play(connection, message) {
     let embed = new Discord.RichEmbed()
     .setDescription(`:one: **${resOne.title}**\n:two: ${resTwo.title}\n:three: ${resThree.title}\n:four: ${resFour.title}\n:five: ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
-        embeds.react("1").then(async r => {
-            await embeds.react("2");
-            await embeds.react("3");
-            await embeds.react("4");
-            await embeds.react("5");
+        embeds.react("1⃣").then(async r => {
+            await embeds.react("2⃣");
+            await embeds.react("3⃣");
+            await embeds.react("4⃣");
+            await embeds.react("5⃣");
 
-            const songOne = (reaction, user) => reaction.emoji.name === "1" && user.id === message.author.id;
-            const songTwo = (reaction, user) => reaction.emoji.name === "2" && user.id === message.author.id;
-            const songThree = (reaction, user) => reaction.emoji.name === "3" && user.id === message.author.id;
-            const songFour = (reaction, user) => reaction.emoji.name === "4" && user.id === message.author.id;
-            const songFive = (reaction, user) => reaction.emoji.name === "5" && user.id === message.author.id;
+            const songOne = (reaction, user) => reaction.emoji.name === "1⃣" && user.id === message.author.id;
+            const songTwo = (reaction, user) => reaction.emoji.name === "2⃣" && user.id === message.author.id;
+            const songThree = (reaction, user) => reaction.emoji.name === "3⃣" && user.id === message.author.id;
+            const songFour = (reaction, user) => reaction.emoji.name === "4⃣" && user.id === message.author.id;
+            const songFive = (reaction, user) => reaction.emoji.name === "5⃣" && user.id === message.author.id;
 
             const one = embeds.createReactionCollector(songOne, { time: 60000 });
             const two = embeds.createReactionCollector(songTwo, { time: 60000 });
