@@ -47,7 +47,7 @@ function play(connection, message) {
             await embeds.react(":regional_indicator_d:");
             await embeds.react(":regional_indicator_e:");
 
-            const songOne = (reaction, user) => reaction.emoji.name === "♥" && user.id === message.author.id;
+            const songOne = (reaction, user) => reaction.emoji.name === ":regional_indicator_a" && user.id === message.author.id;
             const songTwo = (reaction, user) => reaction.emoji.name === ":regional_indicator_b:" && user.id === message.author.id;
             const songThree = (reaction, user) => reaction.emoji.name === ":regional_indicator_c:" && user.id === message.author.id;
             const songFour = (reaction, user) => reaction.emoji.name === ":regional_indicator_d:" && user.id === message.author.id;
