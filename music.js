@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const ytdl = require('ytdl-core');
 const ytsearch = require('youtube-search');
 let musicbot = new Discord.Client();
-let prefix = ">>";
+let prefix = ".";
 let queue = {};
 musicbot.on("ready", async () => {
     console.log("Ready!")
