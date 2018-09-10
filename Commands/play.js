@@ -8,7 +8,7 @@ if(!message.member.voiceChannel) return message.channel.send(":x: | Sorry! Pleas
 
 if(message.guild.me.voiceChannel) return message.channel.send(":x: | Sorry! I'm already playing in a channel.");
 
-if(!args[0]) return message.channel.send("I can't search for *nothing*!");
+if(!args[0]) return message.channel.send(":x: | Sorry! Please provide a Search String or URL.");
 
 function play(connection, message) {
      
@@ -19,7 +19,7 @@ function play(connection, message) {
      server.dispatcher.on("end", function() {
      if(server.queue[0]) return play(connection, message);
        else connection.disconnect();
-       message.channel.send("The queue is empty!");
+       message.channel.send(":dash: | Queue is empty.");
      
      });
    }
@@ -39,19 +39,19 @@ function play(connection, message) {
     let resFive = results[4];
 
     let embed = new Discord.RichEmbed()
-    .setDescription(`:regional_indicator_a: **${resOne.title}**\n:regional_indicator_b: ${resTwo.title}\n:regional_indicator_c: ${resThree.title}\n:regional_indicator_d: ${resFour.title}\n:regional_indicator_e: ${resFive.title}`)
+    .setDescription(`:keycap1: **${resOne.title}**\n:keycap2: ${resTwo.title}\n:keycap3: ${resThree.title}\n:keycap4: ${resFour.title}\n:keycap5: ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
-        embeds.react(":regional_indicator_a:").then(async r => {
-            await embeds.react(":regional_indicator_b:");
-            await embeds.react(":regional_indicator_c:");
-            await embeds.react(":regional_indicator_d:");
-            await embeds.react(":regional_indicator_e:");
+        embeds.react(":keycap1:").then(async r => {
+            await embeds.react(":keycap2:");
+            await embeds.react(":keycap3:");
+            await embeds.react(":keycap4:");
+            await embeds.react(":keycap5:");
 
-            const songOne = (reaction, user) => reaction.emoji.name === ":regional_indicator_a:" && user.id === message.author.id;
-            const songTwo = (reaction, user) => reaction.emoji.name === ":regional_indicator_b:" && user.id === message.author.id;
-            const songThree = (reaction, user) => reaction.emoji.name === ":regional_indicator_c:" && user.id === message.author.id;
-            const songFour = (reaction, user) => reaction.emoji.name === ":regional_indicator_d:" && user.id === message.author.id;
-            const songFive = (reaction, user) => reaction.emoji.name === ":regional_indicator_e:" && user.id === message.author.id;
+            const songOne = (reaction, user) => reaction.emoji.name === "♥" && user.id === message.author.id;
+            const songTwo = (reaction, user) => reaction.emoji.name === ":keycap2:" && user.id === message.author.id;
+            const songThree = (reaction, user) => reaction.emoji.name === ":keycap3:" && user.id === message.author.id;
+            const songFour = (reaction, user) => reaction.emoji.name === ":keycap4:" && user.id === message.author.id;
+            const songFive = (reaction, user) => reaction.emoji.name === ":keycap5:" && user.id === message.author.id;
 
             const one = embeds.createReactionCollector(songOne, { time: 60000 });
             const two = embeds.createReactionCollector(songTwo, { time: 60000 });
