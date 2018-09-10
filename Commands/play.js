@@ -39,19 +39,19 @@ function play(connection, message) {
     let resFive = results[4];
 
     let embed = new Discord.RichEmbed()
-    .setDescription(`:white_large_square: **${resOne.title}**\n:black_large_square: ${resTwo.title}\n:black_circle: ${resThree.title}\n:white_circle: ${resFour.title}\n:large_blue_diamond: ${resFive.title}`)
+    .setDescription(`:arrow_forward: **${resOne.title}**\n:play_pause:  ${resTwo.title}\n:fast_forward:  ${resThree.title}\n:track_next:  ${resFour.title}\n:arrow_right:  ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
-        embeds.react(":white_large_square:").then(async r => {
-            await embeds.react(":black_large_square:");
-            await embeds.react(":black_circle:");
-            await embeds.react(":white_circle:");
-            await embeds.react(":large_blue_diamond:");
+        embeds.react(":arrow_forward:").then(async r => {
+            await embeds.react(":play_pause: ");
+            await embeds.react(":fast_forward: ");
+            await embeds.react(":track_next: ");
+            await embeds.react(":arrow_right: ");
 
             const songOne = (reaction, user) => reaction.emoji.name === "♥" && user.id === message.author.id;
-            const songTwo = (reaction, user) => reaction.emoji.name === ":black_large_square:" && user.id === message.author.id;
-            const songThree = (reaction, user) => reaction.emoji.name === ":black_circle:" && user.id === message.author.id;
-            const songFour = (reaction, user) => reaction.emoji.name === ":white_circle:" && user.id === message.author.id;
-            const songFive = (reaction, user) => reaction.emoji.name === ":large_blue_diamond:" && user.id === message.author.id;
+            const songTwo = (reaction, user) => reaction.emoji.name === ":play_pause: " && user.id === message.author.id;
+            const songThree = (reaction, user) => reaction.emoji.name === ":fast_forward: " && user.id === message.author.id;
+            const songFour = (reaction, user) => reaction.emoji.name === ":track_next: " && user.id === message.author.id;
+            const songFive = (reaction, user) => reaction.emoji.name === ":arrow_right: " && user.id === message.author.id;
 
             const one = embeds.createReactionCollector(songOne, { time: 60000 });
             const two = embeds.createReactionCollector(songTwo, { time: 60000 });
