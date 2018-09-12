@@ -38,6 +38,7 @@ function play(connection, message) {
     let resFive = results[4];
 
     let embed = new Discord.RichEmbed()
+    .setColor(0xff6464)
     .setDescription(`:one: **${resOne.title}**\n:two: ${resTwo.title}\n:three: ${resThree.title}\n:four: ${resFour.title}\n:five: ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
         embeds.react("1⃣").then(async r => {
@@ -62,11 +63,13 @@ function play(connection, message) {
                 server.queue.push(resOne.link)
                 embeds.delete();
                 let info = await ytdl.getInfo(resOne.link);
-                 console.log(info)
                 let playEmbed = new Discord.RichEmbed()
+                .setColor(0xff6464)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
+                .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
                 message.channel.send(playEmbed)
+                .setFooter("Published by: " + info.author.user)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
                   });
@@ -76,9 +79,12 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resTwo.link);
                 let playEmbed = new Discord.RichEmbed()
+                .setColor(0xff6464)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
+                .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
                 message.channel.send(playEmbed)
+                .setFooter("Published by: " + info.author.user)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
                   });
@@ -88,8 +94,11 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resThree.link);
                 let playEmbed = new Discord.RichEmbed()
+                .setColor(0xff6464)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
+                .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
+                .setFooter("Published by: " + info.author.user)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -100,8 +109,11 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resFour.link);
                 let playEmbed = new Discord.RichEmbed()
+                .setColor(0xff6464)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
+                .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
+                .setFooter("Published by: " + info.author.user)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -112,8 +124,11 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resFive.link);
                 let playEmbed = new Discord.RichEmbed()
+                .setColor(0xff6464)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
+                .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
+                .setFooter("Published by: " + info.author.user)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -123,7 +138,4 @@ function play(connection, message) {
         });
     });
   });
-
-
-
 }
