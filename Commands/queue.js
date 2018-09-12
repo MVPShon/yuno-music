@@ -4,6 +4,6 @@ var search = require('youtube-search');
 
 exports.run = async (musicbot, message, args, prefix, server, names) => {
 
-console.log(server.queue)
+console.log(names.names)
 
 }
