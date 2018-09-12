@@ -68,8 +68,8 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                message.channel.send(playEmbed)
                 .setFooter("Published by: " + info.author.user)
+                message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
                   });
@@ -83,8 +83,8 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                message.channel.send(playEmbed)
                 .setFooter("Published by: " + info.author.user)
+                message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
                   });
