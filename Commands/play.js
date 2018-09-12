@@ -61,6 +61,7 @@ function play(connection, message) {
 
             one.on('collect', async r => {
                 server.queue.push(resOne.link)
+                names.names.push(resOne.title);
                 embeds.delete();
                 let info = await ytdl.getInfo(resOne.link);
                 let playEmbed = new Discord.RichEmbed()
@@ -76,6 +77,7 @@ function play(connection, message) {
               })
               two.on('collect', async r => {
                 server.queue.push(resTwo.link)
+                names.names.push(resTwo.title);
                 embeds.delete();
                 let info = await ytdl.getInfo(resTwo.link);
                 let playEmbed = new Discord.RichEmbed()
@@ -91,6 +93,7 @@ function play(connection, message) {
               })
               three.on('collect', async r => {
                 server.queue.push(resThree.link)
+                names.names.push(resThree.title);
                 embeds.delete();
                 let info = await ytdl.getInfo(resThree.link);
                 let playEmbed = new Discord.RichEmbed()
@@ -106,6 +109,7 @@ function play(connection, message) {
               })
               four.on('collect', async r => {
                 server.queue.push(resFour.link)
+                names.names.push(resFour.title);
                 embeds.delete();
                 let info = await ytdl.getInfo(resFour.link);
                 let playEmbed = new Discord.RichEmbed()
@@ -121,6 +125,7 @@ function play(connection, message) {
               })
               five.on('collect', async r => {
                 server.queue.push(resFive.link)
+                names.names.push(resFive.title);
                 embeds.delete();
                 let info = await ytdl.getInfo(resFive.link);
                 let playEmbed = new Discord.RichEmbed()
