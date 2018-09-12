@@ -4,10 +4,10 @@ var search = require('youtube-search');
 
 exports.run = async (musicbot, message, args, prefix, server, names) => {
 
-if(!message.member.voiceChannel) return message.channel.send("You're not in a voice channel!");
+if(!message.member.voiceChannel) return message.channel.send(":x: You're not in a voice channel!");
 
 
-if(!args[0]) return message.channel.send("I can't search for *nothing*!");
+if(!args[0]) return message.channel.send(":x: I can't search for *nothing*!");
 
 function play(connection, message) {
      server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: 'audioonly'}));
@@ -16,7 +16,7 @@ function play(connection, message) {
      server.dispatcher.on("end", function() {
      if(server.queue[0]) return play(connection, message);
        else connection.disconnect();
-       message.channel.send("The queue is empty!");
+       message.channel.send(":x: The queue is empty! Left your voice channel!");
      
      });
    }
