@@ -7,6 +7,6 @@ const ytsearch = require('youtube-search');
 
     server.dispatcher.pause();
 
-    message.channel.send("I have paused the current song.");
+    message.channel.send(":pause_button: Paused the current song.");
 
     }
