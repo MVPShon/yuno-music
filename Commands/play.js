@@ -136,7 +136,7 @@ function play(connection, message) {
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
                   });
-              })
+              }).catch(Error => { return message.channel.send(Error)})
 
         });
     });
