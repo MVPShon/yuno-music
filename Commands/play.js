@@ -62,6 +62,7 @@ function play(connection, message) {
                 server.queue.push(resOne.link)
                 embeds.delete();
                 let info = await ytdl.getInfo(resOne.link);
+                 console.log(info)
                 let playEmbed = new Discord.RichEmbed()
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setThumbnail(info.thumbnail_url)
