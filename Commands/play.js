@@ -10,11 +10,17 @@ if(!message.member.voiceChannel) return message.channel.send(":x: You're not in 
 if(!args[0]) return message.channel.send(":x: I can't search for *nothing*!");
 
 function play(connection, message) {
+     
      server.dispatcher = connection.playStream(ytdl(server.queue[0], {filter: 'audioonly'}));
-     server.queue.shift();
-     names.names.shift();
+   
+    
      server.dispatcher.on("end", function() {
-     if(server.queue[0]) return play(connection, message);
+      server.queue.shift();
+      names.names.shift();
+     if(server.queue[0]) {
+       play(connection, message)
+       return;
+     }
        else connection.disconnect();
        message.channel.send(":x: The queue is empty! Left your voice channel!");
      
