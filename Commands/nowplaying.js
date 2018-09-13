@@ -3,5 +3,6 @@ const ytdl = require("ytdl-core");
 var search = require('youtube-search');
 
 exports.run = async (musicbot, message, args, prefix, server, names) => {
+  if (names.names == "undefined") return message.channel.send("No song is currently playing!")
 message.channel.send(`Now Playing: ${names.names[0]}`);
 }
