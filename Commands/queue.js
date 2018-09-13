@@ -4,7 +4,7 @@ var search = require('youtube-search');
 
 exports.run = async (musicbot, message, args, prefix, server, names) => {
   
-  if(!names.names) return message.channel.send(":x: The queue is empty!")
+  if(names.names == "undefined") return message.channel.send(":x: The queue is empty!")
 
 let embed = new Discord.RichEmbed()
 .setColor(0xff6464)
