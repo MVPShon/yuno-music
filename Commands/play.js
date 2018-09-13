@@ -19,6 +19,7 @@ function play(connection, message) {
       names.names.shift();
      if(server.queue[0]) {
        play(connection, message)
+message.channel.send(`Now Playing: ${names.names[0]}`);
        return;
      }
        else connection.disconnect();
