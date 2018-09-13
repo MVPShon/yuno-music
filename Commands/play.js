@@ -19,13 +19,7 @@ function play(connection, message) {
       names.names.shift();
      if(server.queue[0]) {
        play(connection, message)
-          let songInfo = await ytdl.getInfo(server.queue[0]);
-          let embed = new Discord.RichEmbed()
-          .setTitle(songInfo.title)
-          .setDescription((songInfo.description).slice(0,100))
-          .setThumbnail(songInfo.thumbnail_url)
-          .setFooter("Published by: " + songInfo.author.user)
-          message.channel.send(embed);
+ message.channel.send(`Now Playing: ${names.names[0]}`);
        return;
      }
        else connection.disconnect();
