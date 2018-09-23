@@ -1,6 +1,6 @@
 {
   "name": "evileyemusic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Evileye's Music Functionality.",
   "main": "music.js",
   "scripts": {
@@ -13,8 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^11.4.2",
+    "node-gyp": "^3.8.0",
+    "node-opus": "^0.3.0",
     "nodemon": "^1.18.4",
-    "opusscript": "0.0.6",
     "youtube-search": "^1.1.1",
     "ytdl-core": "^0.25.2"
   }
