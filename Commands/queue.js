@@ -9,7 +9,7 @@ exports.run = async (musicbot, message, args, prefix, server, names) => {
 let embed = new Discord.RichEmbed()
 .setColor(0xff6464)
 .setTitle(`**${message.guild.name}**'s Song Queue`)
-.setDescription(names.names)
+.setDescription("Currently Playing: " +names.names)
 message.channel.send(embed)
 
 }
