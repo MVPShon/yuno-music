@@ -74,7 +74,7 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                .setFooter("Published by: " + info.author.user)
+                .setFooter("Published by: " + info.author.username)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -90,7 +90,7 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                .setFooter("Published by: " + info.author.user)
+                .setFooter("Published by: " + info.author.username)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -106,7 +106,7 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                .setFooter("Published by: " + info.author.user)
+                .setFooter("Published by: " + info.author.username)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -122,7 +122,7 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                .setFooter("Published by: " + info.author.user)
+                .setFooter("Published by: " + info.author.username)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
@@ -138,7 +138,7 @@ function play(connection, message) {
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
-                .setFooter("Published by: " + info.author.user)
+                .setFooter("Published by: " + info.author.username)
                 message.channel.send(playEmbed)
                 if(!message.guild.voiceConnection) await message.member.voiceChannel.join().then(function(connection) {
                     play(connection, message);
