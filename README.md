@@ -1,2 +1,2 @@
-# Evileye-Music
-Evileye's music support.
+# Yuno-Music
+Yuno's music support.
