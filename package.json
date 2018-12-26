@@ -19,7 +19,7 @@
     "youtube-search": "^1.1.1",
     "ytdl-core": "^0.25.2"
   }
-  "engines" {
+  "engines": {
     "node": "8.11.x"
   },
 }
