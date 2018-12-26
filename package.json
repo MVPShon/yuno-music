@@ -18,5 +18,8 @@
     "nodemon": "^1.18.4",
     "youtube-search": "^1.1.1",
     "ytdl-core": "^0.25.2"
+  },
+    "engines": {
+    "node": "10.x"
   }
 }
