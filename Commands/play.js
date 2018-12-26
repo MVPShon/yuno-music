@@ -43,7 +43,7 @@ function play(connection, message) {
     let resFive = results[4];
 
     let embed = new Discord.RichEmbed()
-    .setColor(0xff6464)
+    .setColor(0x8600b3)
     .setDescription(`:one: **${resOne.title}**\n:two: ${resTwo.title}\n:three: ${resThree.title}\n:four: ${resFour.title}\n:five: ${resFive.title}`)
     message.channel.send(embed).then(embeds => {
         embeds.react("1⃣").then(async r => {
@@ -70,7 +70,7 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resOne.link);
                 let playEmbed = new Discord.RichEmbed()
-                .setColor(0xff6464)
+                .setColor(0x8600b3)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
@@ -86,7 +86,7 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resTwo.link);
                 let playEmbed = new Discord.RichEmbed()
-                .setColor(0xff6464)
+                .setColor(0x8600b3)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
@@ -102,7 +102,7 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resThree.link);
                 let playEmbed = new Discord.RichEmbed()
-                .setColor(0xff6464)
+                .setColor(0x8600b3)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
@@ -118,7 +118,7 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resFour.link);
                 let playEmbed = new Discord.RichEmbed()
-                .setColor(0xff6464)
+                .setColor(0x8600b3)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
@@ -134,7 +134,7 @@ function play(connection, message) {
                 embeds.delete();
                 let info = await ytdl.getInfo(resFive.link);
                 let playEmbed = new Discord.RichEmbed()
-                .setColor(0xff6464)
+                .setColor(0x8600b3)
                 .setAuthor(`Added ${info.title} to the queue`, info.author.avatar)
                 .setDescription((info.description).slice(0,100))
                 .setThumbnail(info.thumbnail_url)
